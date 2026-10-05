@@ -3,6 +3,7 @@ package com.kafkalearn.example.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,16 +31,16 @@ public class SecurityController {
 		return list;
 	}
 	
-	@PostMapping
+	@PostMapping("/add")
 	public void add(@RequestBody Employee emp)
 	{
 		list.add(emp);
 	}
 	
-	@GetMapping("/id")
-	public String sessionId(HttpServletRequest req)
+	@GetMapping("/csrf")
+	public CsrfToken sessionId(HttpServletRequest req)
 	{
-		return "Session ID : "+req.getSession().getId();
+		return (CsrfToken) req.getAttribute("_csrf");
 	}
 
 }
