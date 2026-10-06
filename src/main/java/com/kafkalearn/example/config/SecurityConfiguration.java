@@ -28,8 +28,12 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
    
-    	http.authorizeHttpRequests(auth->auth.anyRequest().authenticated())
-    	.httpBasic(Customizer.withDefaults());
+    	http.authorizeHttpRequests(auth->auth
+    			.requestMatchers("/home").permitAll()
+    			.anyRequest().authenticated())
+    	.httpBasic(Customizer.withDefaults())
+    	.formLogin(Customizer.withDefaults());
+//    	.csrf(csrf->csrf.disable());
         return http.build();
     }
 }

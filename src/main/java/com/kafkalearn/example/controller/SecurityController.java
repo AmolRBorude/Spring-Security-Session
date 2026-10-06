@@ -42,5 +42,11 @@ public class SecurityController {
 	{
 		return (CsrfToken) req.getAttribute("_csrf");
 	}
+	
+	@GetMapping("/home")
+	public String homePage()
+	{
+		return "This is home page.";
+	}
 
 }
