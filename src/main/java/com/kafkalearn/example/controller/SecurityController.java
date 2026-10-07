@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kafkalearn.example.entity.Employee;
+import com.kafkalearn.example.Employee.Employee;
 
 import jakarta.servlet.http.HttpServletRequest;
 

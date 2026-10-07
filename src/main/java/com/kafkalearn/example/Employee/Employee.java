@@ -1,4 +1,4 @@
-package com.kafkalearn.example.entity;
+package com.kafkalearn.example.Employee;
 
 public class Employee {
 	
